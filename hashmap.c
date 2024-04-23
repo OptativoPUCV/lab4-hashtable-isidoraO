@@ -56,8 +56,9 @@ void insertMap(HashMap * map, char * key, void * value) {
   }
   else
   {
-  pos = resolverColision(map, pos);
-  map->buckets[pos] = createPair(key, value);
+    pos = resolverColision(map, pos);
+    map->buckets[pos] = createPair(key, value);
+  }
 }
 
 void enlarge(HashMap * map) {
