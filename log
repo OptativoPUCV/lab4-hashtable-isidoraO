@@ -139,3 +139,15 @@ Tue 23 Apr 2024 04:33:44 PM UTC:
  tests:  4|5
 total_score: 20/70
 5780b30
+Tue 23 Apr 2024 04:34:04 PM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:61:5: error: ‘ma’ undeclared (first use in this function); did you mean ‘map’?
+   61 |     ma->size++;
+      |     ^~
+      |     map
+hashmap.c:61:5: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+81ebf3b
