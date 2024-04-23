@@ -151,3 +151,9 @@ hashmap.c:61:5: error: ‘ma’ undeclared (first use in this function); did you
 hashmap.c:61:5: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 81ebf3b
+Tue 23 Apr 2024 04:34:10 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|5
+total_score: 20/70
+51b7321
