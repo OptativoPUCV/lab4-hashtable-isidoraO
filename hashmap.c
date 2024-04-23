@@ -67,10 +67,10 @@ HashMap * createMap(long capacity) {
   temp = (HashMap *)malloc(sizeof(HashMap));
   if(temp == NULL) return NULL;
 
-  temp->buckets = (Pair **) calloc(capacity,sizeof(Pair*));
+  temp->buckets = (Pair **) calloc((capacity * 2),sizeof(Pair*));
   if(temp->buckets == NULL) return NULL;
   
-  temp->capacity = capacity;
+  temp->capacity = (capacity * 2);
   temp->current = -1;
   temp->size = 0;
   
