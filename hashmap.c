@@ -90,7 +90,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)        return NULL;
   if(map->buckets[pos]->key != key)
   {
-    while(map->buckets[pos] != NULL && map->buckets[pos]->key != key)
+    while(map->buckets[pos] != NULL && map->buckets[pos]->key != NULL)
       {
         if(map->buckets[pos]->key == key)
           break;
