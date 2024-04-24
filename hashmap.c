@@ -91,7 +91,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   if(map->buckets[pos]->key == key) return map->buckets[pos];
 
 
-    return NULL;
+    return map->buckets[pos]->value;
 }
 
 Pair * firstMap(HashMap * map) {
