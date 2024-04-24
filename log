@@ -245,3 +245,13 @@ Wed 24 Apr 2024 03:45:40 PM UTC:
  tests:  6|3
 total_score: 40/70
 b8576de
+Wed 24 Apr 2024 04:01:30 PM UTC: 
+ hashmap.c | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:78:45: error: ‘Pair’ has no member named ‘data’
+   78 |           insertMap(map, aux[i]->key, aux[i]->data);
+      |                                             ^~
+Compilation failed
+e02b2d8
