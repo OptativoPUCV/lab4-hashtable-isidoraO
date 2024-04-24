@@ -255,3 +255,8 @@ hashmap.c:78:45: error: ‘Pair’ has no member named ‘data’
       |                                             ^~
 Compilation failed
 e02b2d8
+Wed 24 Apr 2024 04:01:37 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+1696a43

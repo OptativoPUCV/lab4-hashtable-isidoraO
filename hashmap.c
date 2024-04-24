@@ -75,7 +75,7 @@ void enlarge(HashMap * map) {
   for(long i = 0; i < nuevaC; i++)
   {
       if(aux[i] != NULL)
-          insertMap(map, aux[i]->key, aux[i]->data);
+          insertMap(map, aux[i]->key, aux[i]->value);
   }
   map->capacity = nuevaC;
 
