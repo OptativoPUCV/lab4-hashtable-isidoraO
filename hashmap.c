@@ -60,20 +60,25 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
   enlarge_called = 1; //no borrar (testing purposes)
-  Pair **aux = map->buckets;
-  aux = (Pair **) malloc(sizeof(Pair) * map->capacity);
   long nuevaC = map->capacity * 2;
-
-  Pair **nuevo = (Pair**) malloc(sizeof(Pair*) * nuevaC);
-
-  map->buckets = nuevo;
-  map->size = 0;
-
-  for(long i = 0; i < nuevaC; i++)
-  {
-      insertMap(map, aux[i]->key, aux[i]->value);
+  Pair ** map_temp = (Pair**) malloc(sizeof(Pair*) * nuevaC);
+  long i;
+  for (i = 0; i < nuevaC; i++) {
+    map_temp[i] = NULL;
   }
-
+  for (i = 0; i < map->capacity; i++) {
+    Pair * p = map->buckets[i];
+    if (p != NULL) {
+      long index = hash(p->key, nuevaC);
+      while (map_temp[index] != NULL) {
+        index = (index + 1) % nuevaC;
+      }
+      map_temp[index] = p;
+    }
+  }
+  free(map->buckets);
+  map->buckets = map_temp;
+  map->capacity = nuevaC;
 }
 
 
