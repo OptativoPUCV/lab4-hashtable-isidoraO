@@ -41,7 +41,7 @@ int is_equal(void* key1, void* key2){
 long resolverColision(HashMap *map, long pos)
 {
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)         return pos;
-  return resolverColision(map, pos + 1);
+  return resolverColision(map, (pos + 1) % map->capacity);
 }
 
 void insertMap(HashMap * map, char * key, void * value) {
@@ -59,8 +59,19 @@ void insertMap(HashMap * map, char * key, void * value) {
 }
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
+  enlarge_called = 1; //no borrar (testing purposes)
+  Pair **aux = map->buckets;
+  long nuevaC = map->capacity * 2;
 
+  Pair **nuevo = (Pair**) malloc(sizeof(Pair*) * nuevaC);
+
+  map->buckets = nuevo;
+  map->size = 0;
+
+  for(long i = 0; i < nuevaC; i++)
+  {
+      insertMap(map, aux[i]->key, aux[i]->value);
+  }
 
 }
 
