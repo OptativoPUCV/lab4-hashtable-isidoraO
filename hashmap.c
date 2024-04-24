@@ -41,7 +41,6 @@ int is_equal(void* key1, void* key2){
 long resolverColision(HashMap *map, long pos)
 {
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)         return pos;
-  if(pos >= map->capacity) pos = 0;
   return resolverColision(map, pos + 1);
 }
 
