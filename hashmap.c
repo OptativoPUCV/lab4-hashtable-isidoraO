@@ -119,6 +119,7 @@ Pair * firstMap(HashMap * map) {
   } 
   printf("%li", pos);
   map->current = pos;
+  printf("%s", map->buckets[pos]->key);
   return map->buckets[pos];
 }
 
