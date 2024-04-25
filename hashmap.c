@@ -97,8 +97,13 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
-
-    return NULL;
+  long pos;
+  for(pos = 0; pos < map->capacity; pos++)
+  {
+      if(map->buckets[pos] != NULL)
+        break;
+  } 
+  return map->buckets[pos];
 }
 
 Pair * nextMap(HashMap * map) {
