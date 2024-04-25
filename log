@@ -535,3 +535,8 @@ hashmap.c:72:51: error: ‘aux_cap’ undeclared (first use in this function)
 hashmap.c:72:51: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 beae0d7
+Thu 25 Apr 2024 02:08:43 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+548d8b1
