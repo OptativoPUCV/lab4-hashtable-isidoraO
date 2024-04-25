@@ -68,7 +68,7 @@ void enlarge(HashMap * map) {
   for(int i = 0; i < map->capacity; i++)
     {
       if(aux[i] != NULL)
-        printf("%s", aux[i]->key);
+        printf("%s\n ", aux[i]->key);
     }
   
 }
