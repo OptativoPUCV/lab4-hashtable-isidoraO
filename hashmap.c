@@ -64,15 +64,17 @@ void insertMap(HashMap *map, char *key, void *value) {
 void enlarge(HashMap *map) {
   enlarge_called = 1; // no borrar (testing purposes)
 
-  
+  long aux_cap = map->capacity;
+  Pair **aux = (Pair **)malloc(sizeof(Pair *) * aux_cap);
+  aux = map->buckets;
 
   map->capacity = map->capacity * 2;
   map->buckets = (Pair **)realloc(map->buckets, sizeof(Pair *) * map->capacity);
   map->size = 0;
 
-  for (long i = 0; i < map->capacity; i++) {
-    if (map->buckets[i] != NULL && map->buckets[i]->key != NULL)
-      printf("%s\n", map->buckets[i]->key);
+  for (long i = 0; i < aux_cap; i++) {
+    if (aux[i] != NULL)
+      printf("%s\n", aux[i]->key);
   }
 }
 
