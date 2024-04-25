@@ -524,3 +524,14 @@ hashmap.c:66:10: error: variable ‘aux’ set but not used [-Werror=unused-but-
 cc1: all warnings being treated as errors
 Compilation failed
 75040e1
+Thu 25 Apr 2024 02:08:28 AM UTC: 
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:72:51: error: ‘aux_cap’ undeclared (first use in this function)
+   72 |   map->buckets = (Pair**) malloc(sizeof(Pair *) * aux_cap);
+      |                                                   ^~~~~~~
+hashmap.c:72:51: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+beae0d7
