@@ -625,3 +625,14 @@ Thu 25 Apr 2024 02:16:36 AM UTC:
  1 file changed, 8 insertions(+), 5 deletions(-)
  tests:  0|0
 59e53d8
+Thu 25 Apr 2024 02:19:12 AM UTC: 
+ hashmap.c | 58 +++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 29 insertions(+), 29 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:68:10: error: variable ‘aux’ set but not used [-Werror=unused-but-set-variable]
+   68 |   Pair **aux = (Pair **)malloc(sizeof(Pair *) * aux_cap);
+      |          ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+2bfee75
