@@ -81,6 +81,7 @@ void enlarge(HashMap *map) {
     {
       printf("%s\n", aux[i]->key);
       insertMap(map, aux[i]->key, aux[i]->value);
+      map->size++;
     }
   }
 }
