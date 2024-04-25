@@ -93,14 +93,11 @@ Pair * searchMap(HashMap * map,  char * key) {
    while(map->buckets[pos] != NULL)
      {
        if(map->buckets[pos]->key == key)
-         return map->buckets[pos];
+         break;
        pos = (pos + 1) % map->capacity;
      }
   }
-
-    
-  
-  return NULL;
+  return map->buckets[pos];
 }
 
 Pair * firstMap(HashMap * map) {
