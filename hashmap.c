@@ -43,7 +43,6 @@ long resolverColision(HashMap *map, long pos, char *key)
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)         return pos;
   if(strcmp(map->buckets[pos]->key,key) == 0) 
     return pos;
-  if(pos > map->capacity) return -1;
   return resolverColision(map, (pos + 1) % map->capacity, key);
 }
 
@@ -86,13 +85,17 @@ void eraseMap(HashMap * map,  char * key) {
   long pos = hash(key, map->capacity);
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)        return;
   if(strcmp(map->buckets[pos]->key,key) == 0)
+  {
     map->buckets[pos]->key = NULL;
+    map->size--;
+  }  
   else
   {
     pos = resolverColision(map, pos, key);
     map->buckets[pos]->key = NULL;
+    map->size--;
   }
-  map->size--;
+
 }
 
 Pair * searchMap(HashMap * map,  char * key) { 
