@@ -85,17 +85,15 @@ void eraseMap(HashMap * map,  char * key) {
   long pos = hash(key, map->capacity);
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)        return;
   if(strcmp(map->buckets[pos]->key,key) == 0)
-  {
     map->buckets[pos]->key = NULL;
-    map->size--;
-  }  
+
   else
   {
     pos = resolverColision(map, pos, key);
+    if(map->buckets[pos] == NULL) return;
     map->buckets[pos]->key = NULL;
-    map->size--;
   }
-
+  map->size--;
 }
 
 Pair * searchMap(HashMap * map,  char * key) { 
