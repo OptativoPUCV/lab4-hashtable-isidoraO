@@ -117,7 +117,7 @@ Pair * firstMap(HashMap * map) {
     if(map->buckets[pos] != NULL)
       break;
   } 
-  printf("%i", pos);
+  printf("%li", pos);
   map->current = pos;
   return map->buckets[pos];
 }
