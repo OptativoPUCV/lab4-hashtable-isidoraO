@@ -73,8 +73,7 @@ void enlarge(HashMap *map) {
   map->buckets = bucketsV;
   map->size = 0;
   
-  for(long i = 0; i < map->capacity; i++)
-    map->buckets[i] = NULL;
+  
 
   for (long i = 0; i < aux_cap; i++) {
     if (aux[i] != NULL && aux[i]->key != NULL)
