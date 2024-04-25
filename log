@@ -399,3 +399,17 @@ hashmap.c:120:10: error: too many arguments for format [-Werror=format-extra-arg
 cc1: all warnings being treated as errors
 Compilation failed
 8abea47
+Thu 25 Apr 2024 01:49:32 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:120:12: error: format ‘%i’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Werror=format=]
+  120 |   printf("%i", pos);
+      |           ~^   ~~~
+      |            |   |
+      |            int long int
+      |           %li
+cc1: all warnings being treated as errors
+Compilation failed
+c69f2c7
