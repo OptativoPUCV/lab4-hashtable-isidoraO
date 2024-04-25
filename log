@@ -569,3 +569,28 @@ hashmap.c:67:10: error: variable ‘aux’ set but not used [-Werror=unused-but-
 cc1: all warnings being treated as errors
 Compilation failed
 47ea44c
+Thu 25 Apr 2024 02:10:06 AM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:72:50: error: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Werror=int-conversion]
+   72 |   map->buckets = (Pair**) realloc(sizeof(Pair *) * map->capacity);
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+      |                                                  |
+      |                                                  long unsigned int
+In file included from test.c:2:
+/nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdlib.h:551:29: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+  551 | extern void *realloc (void *__ptr, size_t __size)
+      |                       ~~~~~~^~~~~
+In file included from test.c:4:
+hashmap.c:72:27: error: too few arguments to function ‘realloc’
+   72 |   map->buckets = (Pair**) realloc(sizeof(Pair *) * map->capacity);
+      |                           ^~~~~~~
+In file included from test.c:2:
+/nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdlib.h:551:14: note: declared here
+  551 | extern void *realloc (void *__ptr, size_t __size)
+      |              ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+51d4ffc
