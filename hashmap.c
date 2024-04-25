@@ -68,7 +68,7 @@ void enlarge(HashMap * map) {
 
   map->capacity = map->capacity * 2;
   map->size = 0;
-  map->buckets = (Pair**) malloc(sizeof(Pair *) * map->capacity);
+  map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair *));
   
   for(long i = 0; i < map->capacity; i++)
     {
