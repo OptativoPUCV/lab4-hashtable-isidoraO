@@ -306,3 +306,20 @@ Thu 25 Apr 2024 01:05:24 AM UTC:
  tests:  8|3
 total_score: 40/70
 8a3e11c
+Thu 25 Apr 2024 01:07:28 AM UTC: 
+ hashmap.c | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘resolverColision’:
+hashmap.c:46:10: error: too few arguments to function ‘resolverColision’
+   46 |   return resolverColision(map, (pos + 1) % map->capacity);
+      |          ^~~~~~~~~~~~~~~~
+hashmap.c:41:6: note: declared here
+   41 | long resolverColision(HashMap *map, long pos, char *key)
+      |      ^~~~~~~~~~~~~~~~
+hashmap.c:47:1: error: control reaches end of non-void function [-Werror=return-type]
+   47 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+1ce8d71

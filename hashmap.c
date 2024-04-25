@@ -38,9 +38,11 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-long resolverColision(HashMap *map, long pos)
+long resolverColision(HashMap *map, long pos, char *key)
 {
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)         return pos;
+  if(strcmp(map->buckets[pos]->key,key) == 0) 
+    return pos;
   return resolverColision(map, (pos + 1) % map->capacity);
 }
 
@@ -52,7 +54,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     map->buckets[pos] = createPair(key, value);
   else
   {
-    pos = resolverColision(map, pos);
+    pos = resolverColision(map, pos, key);
     map->buckets[pos] = createPair(key, value);
   }
   map->size++;
@@ -89,14 +91,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   if(map->buckets[pos]->key == key)
     return map->buckets[pos];
   else
-  {
-   while(map->buckets[pos] != NULL)
-     {
-       if(strcmp(map->buckets[pos]->key, key) == 0)
-         break;
-       pos = (pos + 1) % map->capacity;
-     }
-  }
+    pos = resolverColision(map, pos, key);
   map->current = pos;
   return map->buckets[pos];
 }
