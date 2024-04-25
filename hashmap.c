@@ -43,7 +43,7 @@ long resolverColision(HashMap *map, long pos, char *key)
   if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)         return pos;
   if(strcmp(map->buckets[pos]->key,key) == 0) 
     return pos;
-  return resolverColision(map, (pos + 1) % map->capacity);
+  return resolverColision(map, (pos + 1) % map->capacity, key);
 }
 
 void insertMap(HashMap * map, char * key, void * value) {
