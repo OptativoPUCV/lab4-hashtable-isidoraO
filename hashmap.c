@@ -114,7 +114,7 @@ Pair * firstMap(HashMap * map) {
   long pos = 0;
   for(; pos <= map->capacity; pos++)
   {
-    if(map->buckets[pos] != NULL || map->buckets[pos]->key != NULL)
+    if(map->buckets[pos] != NULL && map->buckets[pos]->key != NULL)
       break;
   } 
   printf("%li", pos);
