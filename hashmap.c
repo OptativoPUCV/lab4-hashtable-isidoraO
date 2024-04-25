@@ -112,7 +112,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map) {
   long pos;
-  for(pos = 0; pos < map->capacity; pos++)
+  for(pos = 0; pos <= map->capacity; pos++)
   {
     if(map->buckets[pos] != NULL)
       break;
