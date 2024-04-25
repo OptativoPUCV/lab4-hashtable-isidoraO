@@ -82,16 +82,27 @@ HashMap * createMap(long capacity) {
 }
 
 void eraseMap(HashMap * map,  char * key) {    
-
+  long pos = hash(key, map->capacity);
+  if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)        return;
+  if(strcmp(map->buckets[pos]->key,key) == 0)
+    map->buckets[pos]->key = NULL;
+  else
+  {
+    pos = resolverColision(map, pos, key);
+    map->buckets[pos]->key = NULL;
+  }
 
 }
 
 Pair * searchMap(HashMap * map,  char * key) { 
   long pos = hash(key, map->capacity);
+  if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL))       return NULL;
+  
   if(map->buckets[pos]->key == key)
     return map->buckets[pos];
   else
     pos = resolverColision(map, pos, key);
+  
   map->current = pos;
   return map->buckets[pos];
 }
