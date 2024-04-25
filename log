@@ -358,3 +358,9 @@ hashmap.c:99:74: note: ...this statement, but the latter is misleadingly indente
 cc1: all warnings being treated as errors
 Compilation failed
 98f1aed
+Thu 25 Apr 2024 01:18:58 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  9|3
+total_score: 40/70
+9f34094
