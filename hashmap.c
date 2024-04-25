@@ -103,10 +103,17 @@ Pair * firstMap(HashMap * map) {
       if(map->buckets[pos] != NULL)
         break;
   } 
+  map->current = pos;
   return map->buckets[pos];
 }
 
 Pair * nextMap(HashMap * map) {
-
-    return NULL;
+  long pos;
+  for(pos = map->current + 1; pos < map->capacity; pos++)
+    {
+      if(map->buckets[pos] != NULL)
+        break;
+    }
+    
+  return map->buckets[pos];
 }
